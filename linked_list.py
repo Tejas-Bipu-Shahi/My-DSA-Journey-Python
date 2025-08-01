@@ -93,15 +93,34 @@ class LinkedList:
             itr = itr.next
             index += 1
 
+    def insert_after_value(self, data_after, data_to_insert):
+        itr = self.head
+        index = 0
+        while itr:
+            if data_after == str(itr.data):
+                self.insert_at(index+1, data_to_insert)
+                break
+            itr = itr.next
+            index += 1
+
+    def insert_before_value(self, data_before, data_to_insert):
+        itr = self.head
+        index = 0
+        while itr:
+            if data_before == str(itr.data):
+                self.insert_at(index, data_to_insert)
+                break
+            itr = itr.next
+            index += 1
+
 
 if __name__== '__main__': # run the code  only if this file is running directly not being imported into another file
     l1 = LinkedList()
     l1.insert_values(["car","ball","warehouse"])
     l1.print()
-    l1.insert_at(1,"wow")
-    l1.insert_at(2,"bob")
-    l1.insert_at(4,"Nothing is impossible")
+    l1.remove_by_value("ball")
     l1.print()
-    l1.remove_by_value("bob")
+    l1.insert_after_value("car","hahha")
+    l1.insert_before_value("warehouse","before")
     l1.print()
     print(l1.get_length())
