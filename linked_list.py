@@ -82,7 +82,16 @@ class LinkedList:
                 break
             itr = itr.next
             count = count + 1
-                
+
+    def remove_by_value(self,data):
+        itr = self.head
+        index = 0
+        while itr:
+            if data == str(itr.data):
+                self.remove(index)
+                break
+            itr = itr.next
+            index += 1
 
 
 if __name__== '__main__': # run the code  only if this file is running directly not being imported into another file
@@ -92,5 +101,7 @@ if __name__== '__main__': # run the code  only if this file is running directly 
     l1.insert_at(1,"wow")
     l1.insert_at(2,"bob")
     l1.insert_at(4,"Nothing is impossible")
+    l1.print()
+    l1.remove_by_value("bob")
     l1.print()
     print(l1.get_length())
